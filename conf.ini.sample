@@ -1,0 +1,9 @@
+[db]
+user:       asknsolve
+password:   1234
+host:       asknsolve
+database:   asknsolve
+
+[hash]
+salt:       asknsolve
+expander:   500
