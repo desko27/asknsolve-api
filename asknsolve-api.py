@@ -19,7 +19,7 @@ from class_Config import Config, conf_exists
 # ---------------------------------------------------------------------------
 # globals
 # ---------------------------------------------------------------------------
-conf = Config('conf.ini')
+conf = Config('conf/conf.ini')
 app = Flask(__name__)
 hashids = Hashids(conf.hash.salt)
 db = SQLSoup('mysql://%s:%s@%s/%s?charset=utf8'
@@ -142,5 +142,5 @@ app.add_url_rule('/tickets/<hash>', view_func = ticket_view, methods = ['GET', '
 if __name__ == '__main__':
     
     # run server
-    app.run(debug = True)
-    # app.run()
+    app.run(host = '0.0.0.0', debug = True)
+    # app.run(host = '0.0.0.0')
