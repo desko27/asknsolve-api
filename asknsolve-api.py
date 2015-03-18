@@ -83,6 +83,12 @@ def handle_invalid_usage(error):
 # ---------------------------------------------------------------------------
 # views
 # ---------------------------------------------------------------------------
+class LoginAPI(MethodView):
+
+    def get(self):
+        
+        return jsonify(result = 'Nothing right now')
+
 class TicketAPI(MethodView):
 
     def get(self, hash):
@@ -131,10 +137,16 @@ class TicketAPI(MethodView):
 # ---------------------------------------------------------------------------
 # routing rules
 # ---------------------------------------------------------------------------
+
+# login
+login_view = LoginAPI.as_view('login_api')
+app.add_url_rule(view_func = login_view, rule = '/login', methods = ['GET'])
+
+# ticket
 ticket_view = TicketAPI.as_view('ticket_api')
-app.add_url_rule('/tickets', defaults = {'hash': None}, view_func = ticket_view, methods = ['GET'])
-app.add_url_rule('/tickets', view_func = ticket_view, methods = ['POST'])
-app.add_url_rule('/tickets/<hash>', view_func = ticket_view, methods = ['GET', 'PUT', 'DELETE'])
+app.add_url_rule(view_func = ticket_view, rule = '/tickets', methods = ['GET'], defaults = {'hash': None})
+app.add_url_rule(view_func = ticket_view, rule = '/tickets', methods = ['POST'])
+app.add_url_rule(view_func = ticket_view, rule = '/tickets/<hash>', methods = ['GET', 'PUT', 'DELETE'])
 
 # ---------------------------------------------------------------------------
 # program
