@@ -53,9 +53,9 @@ docs/_build/
 # PyBuilder
 target/
 
-# Config files
-*.ini
-
 # Project management
 .vagrant/
 project.npp
+
+# Database tests
+*.sqlite3

@@ -4,8 +4,9 @@
 apt-get update
 
 # install python dependencies
-apt-get install -y python-pip python-mysqldb
-pip install iniparse sqlsoup flask hashids
+apt-get install -y python-pip
+pip install django
+pip install djangorestframework
 
 # other useful tools
 apt-get install -y curl
@@ -28,7 +29,3 @@ echo "Include phpmyadmin.conf" >> /etc/apache2/apache2.conf
 ln -s /etc/phpmyadmin/apache.conf /etc/apache2/phpmyadmin.conf
 php5enmod mcrypt
 service apache2 restart
-
-# import database
-mysql -u root -p1234 < /vagrant/db/database.sql
-mysql -u root -p1234 < /vagrant/db/test-data.sql
