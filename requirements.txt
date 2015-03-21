@@ -1,0 +1,5 @@
+django
+djangorestframework
+oauth2client
+google-api-python-client
+django-cors-headers

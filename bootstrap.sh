@@ -5,8 +5,7 @@ apt-get update
 
 # install python dependencies
 apt-get install -y python-pip
-pip install django
-pip install djangorestframework
+pip install -r requirements.txt
 
 # other useful tools
 apt-get install -y curl
